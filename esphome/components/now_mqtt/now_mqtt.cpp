@@ -4,7 +4,7 @@
 #ifdef USE_ESP32
 #include "Arduino.h"
 #include <esp_now.h>
-#include <WiFi.h>
+// #include <WiFi.h>
 #include <esp_wifi.h>
 #endif
 #ifdef USE_ESP8266
