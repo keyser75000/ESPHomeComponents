@@ -226,3 +226,15 @@ namespace esphome
         }
     } // namespace now_mqtt
 } // namespace esphome
+
+// Hook obligatoire pour ESP32-S3 + LwIP IPv6
+extern "C" {
+  #include "lwip/pbuf.h"
+  #include "lwip/netif.h"
+
+  // Cette fonction est appelée par la stack LwIP IPv6 sur ESP32-S3
+  int lwip_hook_ip6_input(struct pbuf *p, struct netif *inp) {
+    // Comportement par défaut : accepter tous les paquets
+    return 1;
+  }
+}
