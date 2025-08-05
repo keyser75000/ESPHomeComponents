@@ -40,7 +40,7 @@ namespace esphome
         private:
             static int32_t last_rssi;
             void receivecallback(const uint8_t *mac, const uint8_t *data, int len);
-            static void call_on_data_recv_callback(const uint8_t *mac, const uint8_t *incomingData, int len);
+            static void call_on_data_recv_callback(const esp_now_recv_info *info, const uint8_t *incomingData, int len);
             void promcallback(void *buf, wifi_promiscuous_pkt_type_t type);
             static void call_prom_callback(void *buf, wifi_promiscuous_pkt_type_t type);
             void split(char **argv, int *argc, char *string, const char delimiter, int allowempty);
